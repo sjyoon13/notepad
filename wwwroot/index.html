@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 메모장</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <div class="app">
+        <!-- 사이드바: 검색 + 메모 목록 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>📒 메모장</h1>
+                <button id="newBtn" class="btn-new" title="새 메모">＋</button>
+            </div>
+            <div class="search-box">
+                <input id="searchInput" type="text" placeholder="🔍 메모 검색..." />
+            </div>
+            <ul id="noteList" class="note-list"></ul>
+        </aside>
+
+        <!-- 에디터 영역 -->
+        <main class="editor">
+            <div id="emptyState" class="empty-state">
+                <p>왼쪽에서 메모를 선택하거나<br /><b>＋</b> 버튼으로 새 메모를 만드세요.</p>
+            </div>
+
+            <div id="editorPane" class="editor-pane hidden">
+                <div class="editor-toolbar">
+                    <span id="saveStatus" class="save-status">저장됨</span>
+                    <button id="deleteBtn" class="btn-delete">🗑 삭제</button>
+                </div>
+                <input id="titleInput" class="title-input" type="text" placeholder="제목" />
+                <input id="tagsInput" class="tags-input" type="text" placeholder="태그 (쉼표로 구분)" />
+                <textarea id="contentInput" class="content-input" placeholder="여기에 내용을 입력하세요..."></textarea>
+            </div>
+        </main>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

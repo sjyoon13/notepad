@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- .NET 10 LTS 런타임 사용 -->
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Notepad</RootNamespace>
+    <AssemblyName>notepad</AssemblyName>
+  </PropertyGroup>
+
+</Project>

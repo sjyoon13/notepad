@@ -1,0 +1,117 @@
+/* 전체 레이아웃 및 기본 스타일 (에버노트 풍) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --green: #2dbe60;
+    --green-dark: #21a050;
+    --bg: #f7f8f9;
+    --border: #e2e5e8;
+    --text: #2c2c2c;
+    --muted: #8a9099;
+}
+
+body {
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app { display: flex; height: 100vh; }
+
+/* ---------- 사이드바 ---------- */
+.sidebar {
+    width: 320px;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-header h1 { font-size: 18px; font-weight: 700; }
+
+.btn-new {
+    width: 34px; height: 34px;
+    border: none; border-radius: 8px;
+    background: var(--green); color: #fff;
+    font-size: 22px; line-height: 1; cursor: pointer;
+    transition: background .15s;
+}
+.btn-new:hover { background: var(--green-dark); }
+
+.search-box { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.search-box input {
+    width: 100%; padding: 9px 12px;
+    border: 1px solid var(--border); border-radius: 8px;
+    font-size: 14px; outline: none; background: var(--bg);
+}
+.search-box input:focus { border-color: var(--green); }
+
+/* ---------- 메모 목록 ---------- */
+.note-list { list-style: none; overflow-y: auto; flex: 1; }
+.note-item {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background .12s;
+}
+.note-item:hover { background: var(--bg); }
+.note-item.active { background: #eafaf0; border-left: 3px solid var(--green); }
+.note-item h3 {
+    font-size: 15px; font-weight: 600; margin-bottom: 4px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.note-item p {
+    font-size: 13px; color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.note-item .meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.note-item .tag {
+    display: inline-block; background: #eafaf0; color: var(--green-dark);
+    border-radius: 4px; padding: 1px 6px; font-size: 11px; margin-right: 4px;
+}
+
+/* ---------- 에디터 ---------- */
+.editor { flex: 1; display: flex; flex-direction: column; }
+
+.empty-state {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); text-align: center; line-height: 1.8; font-size: 15px;
+}
+
+.editor-pane { flex: 1; display: flex; flex-direction: column; padding: 0 36px; }
+.hidden { display: none !important; }
+
+.editor-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+}
+.save-status { font-size: 13px; color: var(--muted); }
+.btn-delete {
+    border: 1px solid var(--border); background: #fff; color: #e05555;
+    padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px;
+}
+.btn-delete:hover { background: #fff0f0; border-color: #e05555; }
+
+.title-input {
+    border: none; outline: none; font-size: 26px; font-weight: 700;
+    padding: 22px 0 10px; width: 100%;
+}
+.tags-input {
+    border: none; outline: none; font-size: 14px; color: var(--green-dark);
+    padding: 4px 0 14px; width: 100%; border-bottom: 1px solid var(--border);
+}
+.content-input {
+    border: none; outline: none; resize: none; flex: 1;
+    font-size: 16px; line-height: 1.7; padding: 18px 0; width: 100%;
+    font-family: inherit;
+}

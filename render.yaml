@@ -1,0 +1,16 @@
+# Render Blueprint - 무료 플랜(free)으로 메모장 앱 배포
+services:
+  - type: web
+    name: notepad
+    runtime: docker          # Dockerfile 기반 배포
+    plan: free               # ★ 무료 플랜 사용
+    region: singapore        # Turso DB(ap-northeast-1)와 가까운 리전
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health # 헬스 체크 엔드포인트
+    autoDeploy: true         # main 푸시 시 자동 배포
+    envVars:
+      # 민감 정보는 저장소에 두지 않고 Render 대시보드에서 직접 입력한다.
+      - key: TURSO_URL
+        sync: false
+      - key: TURSO_TOKEN
+        sync: false
